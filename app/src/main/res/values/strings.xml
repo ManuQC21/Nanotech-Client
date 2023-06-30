@@ -1,3 +1,122 @@
 <resources>
-    <string name="app_name">NanoTechApp</string>
+    <string name="app_name">E-CommerceApp</string>
+    <string name="label_usuario">Correo Electrónico</string>
+    <string name="label_password">Contraseña</string>
+    <string name="label_start_session">Iniciar Sesión</string>
+    <string name="label_nuevoUser"><u>Nuevo Usuario ? Registrarme Ahora</u></string>
+    <string name="label_olvide_password">Olvide mi contraseña ?</string>
+    <string name="label_bienvenida">Hola ! - Identifíquese para iniciar sesión</string>
+    <string name="title_activity_inicio">InicioActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Quispe Cueva Manuel</string>
+    <string name="nav_header_subtitle">mquispecueva1@upao.edu.pe</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Cerrar Sesión</string>
+    <string name="descripcion_Producto">"Este elegante calzado combina comodidad y estilo en cada paso. Con su diseño moderno y materiales de alta calidad, brinda un ajuste perfecto y durabilidad. Ideal para ocasiones formales o informales, este calzado añade un toque de sofisticación a cualquier conjunto. Disfruta de la moda y la comodidad en un solo par."
+    </string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_gallery">Mis Compras</string>
+    <string name="menu_slideshow">Configuración</string>
+    <string name="add_shop">Añadir al Carrito</string>
+    <string name="comprar_p">Comprar</string>
+    <string-array name="tipoDoc">
+        <item>DNI</item>
+        <item>RUC</item>
+        <item>CARNET EXT.</item>
+        <item>PASAPORTE</item>
+    </string-array>
+    <string-array name="departamentos">
+        <item>Amazonas</item>
+        <item>Áncash</item>
+        <item>Apurímac</item>
+        <item>Arequipa</item>
+        <item>Ayacucho</item>
+        <item>Cajamarca</item>
+        <item>Callao</item>
+        <item>Cusco</item>
+        <item>Huancavelica</item>
+        <item>Huánuco</item>
+        <item>Ica</item>
+        <item>Junín</item>
+        <item>La Libertad</item>
+        <item>Lambayeque</item>
+        <item>Lima</item>
+        <item>Loreto</item>
+        <item>Madre de Dios</item>
+        <item>Moquegua</item>
+        <item>Pasco</item>
+        <item>Piura</item>
+        <item>Puno</item>
+        <item>San Martín</item>
+        <item>Tacna</item>
+        <item>Tumbes</item>
+        <item>Ucayali</item>
+    </string-array>
+    <string-array name="provincias">
+        <item>Amazonas</item>
+        <item>Ancash</item>
+        <item>Apurimac</item>
+        <item>Arequipa</item>
+        <item>Ayacucho</item>
+        <item>Cajamarca</item>
+        <item>Callao</item>
+        <item>Cusco</item>
+        <item>Huancavelica</item>
+        <item>Huanuco</item>
+        <item>Ica</item>
+        <item>Junin</item>
+        <item>La Libertad</item>
+        <item>Lambayeque</item>
+        <item>Lima</item>
+        <item>Loreto</item>
+        <item>Madre de Dios</item>
+        <item>Moquegua</item>
+        <item>Pasco</item>
+        <item>Piura</item>
+        <item>Puno</item>
+        <item>San Martin</item>
+        <item>Tacna</item>
+        <item>Tumbes</item>
+        <item>Ucayali</item>
+    </string-array>
+    <string-array name="distritos">
+        <item>Abancay</item>
+        <item>Andahuaylas</item>
+        <item>Arequipa</item>
+        <item>Ayacucho</item>
+        <item>Cajamarca</item>
+        <item>Cusco</item>
+        <item>Chachapoyas</item>
+        <item>Chiclayo</item>
+        <item>Chimbote</item>
+        <item>Chincha Alta</item>
+        <item>Chulucanas</item>
+        <item>Cerro de Pasco</item>
+        <item>Cajamarca</item>
+        <item>Huacho</item>
+        <item>Huancayo</item>
+        <item>Huánuco</item>
+        <item>Huaraz</item>
+        <item>Ica</item>
+        <item>Iquitos</item>
+        <item>Juliaca</item>
+        <item>Junín</item>
+        <item>Moyobamba</item>
+        <item>Pacasmayo</item>
+        <item>Paita</item>
+        <item>Piura</item>
+        <item>Pucallpa</item>
+        <item>Puno</item>
+        <item>Sullana</item>
+        <item>Tacna</item>
+        <item>Talara</item>
+        <item>Tarapoto</item>
+        <item>Tingo María</item>
+        <item>Tocache</item>
+        <item>Trujillo</item>
+        <item>Tumbes</item>
+        <item>Yurimaguas</item>
+    </string-array>
 </resources>
