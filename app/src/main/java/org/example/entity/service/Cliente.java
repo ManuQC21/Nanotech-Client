@@ -3,129 +3,129 @@ package org.example.entity.service;
 
 public class Cliente {
 
-    private int idcliente;
+    private int id;
 
-    private String Nombres;
+    private String nombres;
 
-    private String ApellidoPaterno;
+    private String apellidoPaterno;
 
-    private String ApellidoMaterno;
+    private String apellidoMaterno;
 
-    private String TipoDoc;
+    private String tipoDoc;
 
-    private String NumDoc;
+    private String numDoc;
 
-    private String DireccionEnvio;
+    private String direccionEnvio;
 
-    private String Departamento;
+    private String departamento;
 
-    private String Provincia;
+    private String provincia;
 
-    private String Distrito;
+    private String distrito;
 
-    private String Telefono;
+    private String telefono;
 
-    private DocumentoAlmacenado Foto;
+    private DocumentoAlmacenado foto;
 
-    public int getIdcliente() {
-        return idcliente;
+    public int getId() {
+        return id;
     }
 
-    public void setIdcliente(int idcliente) {
-        this.idcliente = idcliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombres() {
-        return Nombres;
+        return nombres;
     }
 
     public void setNombres(String nombres) {
-        Nombres = nombres;
+        this.nombres = nombres;
     }
 
     public String getApellidoPaterno() {
-        return ApellidoPaterno;
+        return apellidoPaterno;
     }
 
     public void setApellidoPaterno(String apellidoPaterno) {
-        ApellidoPaterno = apellidoPaterno;
+        this.apellidoPaterno = apellidoPaterno;
     }
 
     public String getApellidoMaterno() {
-        return ApellidoMaterno;
+        return apellidoMaterno;
     }
 
     public void setApellidoMaterno(String apellidoMaterno) {
-        ApellidoMaterno = apellidoMaterno;
+        this.apellidoMaterno = apellidoMaterno;
     }
 
     public String getTipoDoc() {
-        return TipoDoc;
+        return tipoDoc;
     }
 
     public void setTipoDoc(String tipoDoc) {
-        TipoDoc = tipoDoc;
+        this.tipoDoc = tipoDoc;
     }
 
     public String getNumDoc() {
-        return NumDoc;
+        return numDoc;
     }
 
     public void setNumDoc(String numDoc) {
-        NumDoc = numDoc;
+        this.numDoc = numDoc;
     }
 
     public String getDireccionEnvio() {
-        return DireccionEnvio;
+        return direccionEnvio;
     }
 
     public void setDireccionEnvio(String direccionEnvio) {
-        DireccionEnvio = direccionEnvio;
+        this.direccionEnvio = direccionEnvio;
     }
 
     public String getDepartamento() {
-        return Departamento;
+        return departamento;
     }
 
     public void setDepartamento(String departamento) {
-        Departamento = departamento;
+        this.departamento = departamento;
     }
 
     public String getProvincia() {
-        return Provincia;
+        return provincia;
     }
 
     public void setProvincia(String provincia) {
-        Provincia = provincia;
+        this.provincia = provincia;
     }
 
     public String getDistrito() {
-        return Distrito;
+        return distrito;
     }
 
     public void setDistrito(String distrito) {
-        Distrito = distrito;
+        this.distrito = distrito;
     }
 
     public String getTelefono() {
-        return Telefono;
+        return telefono;
     }
 
     public void setTelefono(String telefono) {
-        Telefono = telefono;
+        this.telefono = telefono;
     }
 
     public DocumentoAlmacenado getFoto() {
-        return Foto;
+        return foto;
     }
 
     public void setFoto(DocumentoAlmacenado foto) {
-        Foto = foto;
+        this.foto = foto;
     }
 
     public String getNombreCompletoCiente(){
-        return this.Nombres != null && this.ApellidoPaterno != null && this.ApellidoMaterno != null ?
-                this.Nombres + " " + this.ApellidoPaterno + " " + this.ApellidoMaterno: "-----";
+        return this.nombres != null && this.apellidoPaterno != null && this.apellidoMaterno != null ?
+                this.nombres + " " + this.apellidoPaterno + " " + this.apellidoMaterno : "-----";
     }
 
 }

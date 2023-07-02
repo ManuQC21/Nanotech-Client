@@ -1,4 +1,4 @@
-package org.example.activity.ui.home;
+package org.example.activity.ui.inicio;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ public class InicioFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_inicio, container, false);
     }
 
 
