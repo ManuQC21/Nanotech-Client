@@ -25,6 +25,8 @@ public class ConfigApi {
     private static String token="";
 
     private static UsuarioApi usuarioApi;
+    private static ClienteApi clienteApi;
+    private static DocumentoAlmacenadoApi documentoAlmacenadoApi;
 
     static {
         initClient();
@@ -70,4 +72,16 @@ public class ConfigApi {
         return usuarioApi;
     }
 
+    public static ClienteApi getClienteApi() {
+        if (clienteApi == null) {
+            clienteApi = retrofit.create(ClienteApi.class);
+        }
+        return clienteApi;
+    }
+    public static DocumentoAlmacenadoApi getDocumentoAlmacenadoApi() {
+        if (documentoAlmacenadoApi == null) {
+            documentoAlmacenadoApi = retrofit.create(DocumentoAlmacenadoApi.class);
+        }
+        return documentoAlmacenadoApi;
+    }
 }

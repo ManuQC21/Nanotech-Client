@@ -6,24 +6,24 @@ public class Producto {
 
     private int id;
 
-    private String Nombre;
+    private String nombre;
 
-    private MedidaEnum Medida;
+    private MedidaEnum medida;
     public enum MedidaEnum {
         Unidades,
         Caja
     }
-    private String Documento;
-    private int Cantidad;
-    private String RazonSocial;
-    private int Precio;
-    private String Descripcion;
-    private String Color;
-    private Categoria Categoria;
-    private boolean Stock;
+    private String documento;
+    private int cantidad;
+    private String razonsocial;
+    private int precio;
+    private String descripcion;
+    private String color;
+    private Categoria categoria;
+    private boolean stock;
     private boolean vigencia;
     private boolean recomendado;
-    private DocumentoAlmacenado Foto;
+    private DocumentoAlmacenado foto;
 
     public int getId() {
         return id;
@@ -34,84 +34,84 @@ public class Producto {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public MedidaEnum getMedida() {
-        return Medida;
+        return medida;
     }
 
     public void setMedida(MedidaEnum medida) {
-        Medida = medida;
+        this.medida = medida;
     }
 
     public String getDocumento() {
-        return Documento;
+        return documento;
     }
 
     public void setDocumento(String documento) {
-        Documento = documento;
+        this.documento = documento;
     }
 
     public int getCantidad() {
-        return Cantidad;
+        return cantidad;
     }
 
     public void setCantidad(int cantidad) {
-        Cantidad = cantidad;
+        this.cantidad = cantidad;
     }
 
-    public String getRazonSocial() {
-        return RazonSocial;
+    public String getRazonsocial() {
+        return razonsocial;
     }
 
-    public void setRazonSocial(String razonSocial) {
-        RazonSocial = razonSocial;
+    public void setRazonsocial(String razonsocial) {
+        this.razonsocial = razonsocial;
     }
 
     public int getPrecio() {
-        return Precio;
+        return precio;
     }
 
     public void setPrecio(int precio) {
-        Precio = precio;
+        this.precio = precio;
     }
 
     public String getDescripcion() {
-        return Descripcion;
+        return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+        this.descripcion = descripcion;
     }
 
 
     public String getColor() {
-        return Color;
+        return color;
     }
 
     public void setColor(String color) {
-        Color = color;
+        this.color = color;
     }
 
     public Categoria getCategoria() {
-        return Categoria;
+        return categoria;
     }
 
     public void setCategoria(Categoria categoria) {
-        this.Categoria = categoria;
+        this.categoria = categoria;
     }
 
     public boolean isStock() {
-        return Stock;
+        return stock;
     }
 
     public void setStock(boolean stock) {
-        Stock = stock;
+        this.stock = stock;
     }
 
     public boolean isRecomendado() {
@@ -123,11 +123,11 @@ public class Producto {
     }
 
     public DocumentoAlmacenado getFoto() {
-        return Foto;
+        return foto;
     }
 
     public void setFoto(DocumentoAlmacenado foto) {
-        Foto = foto;
+        this.foto = foto;
     }
 
     public boolean isVigencia() {

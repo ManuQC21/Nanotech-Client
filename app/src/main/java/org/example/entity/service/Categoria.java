@@ -5,17 +5,17 @@ public class Categoria {
 
     private int id;
 
-    private String Nombre;
+    private String nombre;
 
-    private boolean Stock;
+    private boolean stock;
 
-    private DocumentoAlmacenado Foto;
+    private DocumentoAlmacenado foto;
 
     public Categoria(int id, String nombre, boolean stock, DocumentoAlmacenado foto) {
         this.id = id;
-        Nombre = nombre;
-        Stock = stock;
-        Foto = foto;
+        this.nombre = nombre;
+        this.stock = stock;
+        this.foto = foto;
     }
 
     public Categoria() {
@@ -31,26 +31,26 @@ public class Categoria {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public boolean isStock() {
-        return Stock;
+        return stock;
     }
 
     public void setStock(boolean stock) {
-        Stock = stock;
+        this.stock = stock;
     }
 
     public DocumentoAlmacenado getFoto() {
-        return Foto;
+        return foto;
     }
 
     public void setFoto(DocumentoAlmacenado foto) {
-        Foto = foto;
+        this.foto = foto;
     }
 }

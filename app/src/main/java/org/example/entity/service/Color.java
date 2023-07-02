@@ -14,7 +14,7 @@ public class Color {
         Plomo
     }
 
-    private int Disponibilidad;
+    private int disponibilidad;
 
     private Producto producto;
     public int getIdcolor() {
@@ -34,11 +34,11 @@ public class Color {
     }
 
     public int getDisponibilidad() {
-        return Disponibilidad;
+        return disponibilidad;
     }
 
     public void setDisponibilidad(int disponibilidad) {
-        Disponibilidad = disponibilidad;
+        this.disponibilidad = disponibilidad;
     }
 
     public Producto getProducto() {

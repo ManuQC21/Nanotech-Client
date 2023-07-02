@@ -7,7 +7,7 @@ public class DetallePedido {
 
     private int idpedido;
 
-    private int Cantidad;
+    private int cantidad;
 
     private Double precio;
     private Producto producto;
@@ -22,11 +22,11 @@ public class DetallePedido {
     }
 
     public int getCantidad() {
-        return Cantidad;
+        return cantidad;
     }
 
     public void setCantidad(int cantidad) {
-        this.Cantidad = cantidad;
+        this.cantidad = cantidad;
     }
 
     public Double getPrecio() {
