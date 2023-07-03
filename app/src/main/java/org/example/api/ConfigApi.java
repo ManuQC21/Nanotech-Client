@@ -20,6 +20,7 @@ public class ConfigApi {
 
     public static final String baseUrlE = "http://10.0.2.2:9090";
     public static final String ipManuel = "http://192.168.0.18:9090";
+    public static final String ipcel = "http://179.6.166.60:9090";
 
     private static Retrofit retrofit;
     private static String token="";

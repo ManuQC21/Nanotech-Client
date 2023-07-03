@@ -25,7 +25,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import org.example.R;
-import org.example.entity.GenericResponse;
 import org.example.entity.service.Usuario;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnIniciarSesion;
     private UsuarioViewModel viewModel;
     private TextInputLayout txtInputUsuario, txtInputPassword;
-
+    private TextView txtNuevoUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         edtPassword = findViewById(R.id.edtPassword);
         txtInputUsuario = findViewById(R.id.txtInputUsuario);
         txtInputPassword = findViewById(R.id.txtInputPassword);
+        txtNuevoUsuario = findViewById(R.id.txtNuevoUsuario);
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
         btnIniciarSesion.setOnClickListener(view -> {
             try {
@@ -89,7 +89,11 @@ public class MainActivity extends AppCompatActivity {
                 toastIncorrecto("Se ha producido un error al intentar loguearte : " + e.getMessage());
             }
         });
-
+        txtNuevoUsuario.setOnClickListener(v -> {
+            Intent i = new Intent(this, RegistrarUsuarioActivity.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.left_in, R.anim.left_out);
+        });
         edtMail.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
