@@ -1,6 +1,8 @@
 package org.example.entity.service;
 
 
+import java.util.List;
+
 public class Producto {
 
 
@@ -8,19 +10,15 @@ public class Producto {
 
     private String nombre;
 
-    private MedidaEnum medida;
-    public enum MedidaEnum {
-        Unidades,
-        Caja
-    }
+    private String medida;
     private String documento;
-    private int cantidad;
+    private int stock;
     private String razonsocial;
     private int precio;
     private String descripcion;
-    private String color;
+
+    private List<ProductoColor> productoColores;
     private Categoria categoria;
-    private boolean stock;
     private boolean vigencia;
     private boolean recomendado;
     private DocumentoAlmacenado foto;
@@ -41,13 +39,6 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public MedidaEnum getMedida() {
-        return medida;
-    }
-
-    public void setMedida(MedidaEnum medida) {
-        this.medida = medida;
-    }
 
     public String getDocumento() {
         return documento;
@@ -57,12 +48,12 @@ public class Producto {
         this.documento = documento;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getStock() {
+        return stock;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public String getRazonsocial() {
@@ -89,13 +80,12 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-
-    public String getColor() {
-        return color;
+    public List<ProductoColor> getProductoColores() {
+        return productoColores;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setProductoColores(List<ProductoColor> productoColores) {
+        this.productoColores = productoColores;
     }
 
     public Categoria getCategoria() {
@@ -106,12 +96,12 @@ public class Producto {
         this.categoria = categoria;
     }
 
-    public boolean isStock() {
-        return stock;
+    public String getMedida() {
+        return medida;
     }
 
-    public void setStock(boolean stock) {
-        this.stock = stock;
+    public void setMedida(String medida) {
+        this.medida = medida;
     }
 
     public boolean isRecomendado() {

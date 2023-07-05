@@ -354,7 +354,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                         this.clienteViewModel.guardarCliente(c).observe(this, cResponse -> {
                             if (cResponse.getRpta() == 1) {
 
-                                Toast.makeText(this, response.getMessage() + ", ahora procederemos a registrar sus credenciales.", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(this, response.getMessage() + ", ahora procederemos a registrar sus credenciales.", Toast.LENGTH_SHORT).show();
                                 int idc = cResponse.getBody().getId();//Obtener el id del cliente.
                                 Usuario u = new Usuario();
                                 u.setCorreo(edtEmailUser.getText().toString());
@@ -362,11 +362,11 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                                 u.setVigencia(true);
                                 u.setCliente(new Cliente(idc));
                                 this.usuarioViewModel.save(u).observe(this, uResponse -> {
-                                    Toast.makeText(this, uResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(this, uResponse.getMessage(), Toast.LENGTH_SHORT).show();
                                     if (uResponse.getRpta() == 1) {
-                                        Toast.makeText(this, "Sus Datos y credenciales fueron creados correctamente", Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(this, "Sus Datos y credenciales fueron creados correctamente", Toast.LENGTH_SHORT).show();
                                         successMessage("Estupendo! " + "Su información ha sido guardada con éxito en el sistema.");
-                                        this.finish();
+                                        //this.finish();
                                     } else {
                                         toastIncorrecto("No se ha podido guardar los datos, intentelo de nuevo");
                                     }

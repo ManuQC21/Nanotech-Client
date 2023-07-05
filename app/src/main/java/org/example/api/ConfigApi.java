@@ -19,9 +19,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ConfigApi {
 
     public static final String baseUrlE = "http://10.0.2.2:9090";
-    public static final String ipManuel = "http://192.168.0.18:9090";
-    public static final String ipcel = "http://179.6.166.60:9090";
 
+    public static final String ipManuel = "http://192.168.0.18:9090";
     private static Retrofit retrofit;
     private static String token="";
 
@@ -39,7 +38,7 @@ public class ConfigApi {
                 .registerTypeAdapter(Time.class, new TimeSerializer())
                 .create();
         retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrlE)//Si quieren ejecutar la app desde su móvil, cambiar aquí con la ip de su ordenador
+                .baseUrl(ipManuel)//Si quieren ejecutar la app desde su móvil, cambiar aquí con la ip de su ordenador
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(getClient())
                 .build();
