@@ -5,17 +5,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import org.example.R;
+import org.example.adapter.CategoriaAdapter;
 import org.example.adapter.SliderAdapter;
 import org.example.entity.SliderItem;
+import org.example.viewmodel.CategoriaViewModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -23,6 +28,9 @@ import java.util.List;
 
 public class InicioFragment extends Fragment {
 
+    private CategoriaViewModel categoriaViewModel;
+    private GridView gvCategorias;
+    private CategoriaAdapter categoriaAdapter;
     private SliderView svCarrusel;
     private SliderAdapter sliderAdapter;
 
@@ -41,8 +49,10 @@ public class InicioFragment extends Fragment {
 
     private void init(View v) {
         svCarrusel = v.findViewById(R.id.svCarrusel);
-
-
+        ViewModelProvider vmp = new ViewModelProvider(this);
+        //Categorías
+        categoriaViewModel = vmp.get(CategoriaViewModel.class);
+        gvCategorias = v.findViewById(R.id.gvCategorias);
     }
 
     private void initAdapter() {
@@ -56,7 +66,9 @@ public class InicioFragment extends Fragment {
         svCarrusel.setIndicatorUnselectedColor(Color.GRAY);
         svCarrusel.setScrollTimeInSec(4); //set scroll delay in seconds :
         svCarrusel.startAutoCycle();
-
+        //Categorías
+        categoriaAdapter = new CategoriaAdapter(getContext(), R.layout.item_categorias, new ArrayList<>());
+        gvCategorias.setAdapter(categoriaAdapter);
     }
 
     private void loadData() {
@@ -67,7 +79,14 @@ public class InicioFragment extends Fragment {
         lista.add(new SliderItem(R.drawable.laptop, "Las Mejores Laptops"));
         lista.add(new SliderItem(R.drawable.cel, "Las Mejores Marcas"));
         sliderAdapter.updateItem(lista);
-
-
+        categoriaViewModel.listarCategoriasActivas().observe(getViewLifecycleOwner(), response -> {
+            if(response.getRpta() == 1){
+                categoriaAdapter.clear();
+                categoriaAdapter.addAll(response.getBody());
+                categoriaAdapter.notifyDataSetChanged();
+            }else{
+                System.out.println("Error al obtener las categorías activas");
+            }
+        });
     }
 }
