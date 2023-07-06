@@ -14,7 +14,7 @@ public class Producto {
     private String documento;
     private int stock;
     private String razonsocial;
-    private int precio;
+    private Double  precio;
     private String descripcion;
 
     private List<ProductoColor> productoColores;
@@ -64,11 +64,12 @@ public class Producto {
         this.razonsocial = razonsocial;
     }
 
-    public int getPrecio() {
+
+    public Double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(Double precio) {
         this.precio = precio;
     }
 

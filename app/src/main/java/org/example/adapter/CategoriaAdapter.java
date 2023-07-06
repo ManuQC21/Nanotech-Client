@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.example.R;
+import org.example.activity.ListarProductosPorCategoriaActivity;
 import org.example.api.ConfigApi;
 import org.example.entity.service.Categoria;
 import com.squareup.picasso.OkHttp3Downloader;
@@ -45,6 +46,11 @@ public class CategoriaAdapter extends ArrayAdapter<Categoria> {
                 .error(R.drawable.image_not_found)
                 .into(imgCategoria);
         txtNombreCategoria.setText(c.getNombre());
+        convertView.setOnClickListener(v -> {
+            Intent i = new Intent(getContext(), ListarProductosPorCategoriaActivity.class);
+            i.putExtra("idC", c.getId());//Obtenenmos el id de la Categoria
+            getContext().startActivity(i);
+        });
         return convertView;
     }
 }
