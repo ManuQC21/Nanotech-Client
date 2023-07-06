@@ -34,11 +34,15 @@
                 android:layout_alignRight="@+id/imgCategoria"
                 android:layout_alignBottom="@+id/imgCategoria"
                 android:fontFamily="@font/poppins_medium"
-                android:textSize="18sp"
+                android:textSize="11sp"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:text="Categoría 1"
-                android:textColor="#000" />
+                android:textColor="#000000"
+                android:shadowColor="#2D046E"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="1"/>
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

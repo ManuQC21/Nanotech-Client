@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -18,9 +20,12 @@ import com.smarteist.autoimageslider.SliderView;
 
 import org.example.R;
 import org.example.adapter.CategoriaAdapter;
+import org.example.adapter.ProductoRecomendadoAdapter;
 import org.example.adapter.SliderAdapter;
 import org.example.entity.SliderItem;
+import org.example.entity.service.Producto;
 import org.example.viewmodel.CategoriaViewModel;
+import org.example.viewmodel.ProductoViewModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -29,6 +34,14 @@ import java.util.List;
 public class InicioFragment extends Fragment {
 
     private CategoriaViewModel categoriaViewModel;
+
+
+    private ProductoViewModel productoViewModel;
+    private RecyclerView rcvProductosRecomendados;
+    private ProductoRecomendadoAdapter adapter;
+    private List<Producto> productos = new ArrayList<>();
+
+
     private GridView gvCategorias;
     private CategoriaAdapter categoriaAdapter;
     private SliderView svCarrusel;
@@ -53,6 +66,12 @@ public class InicioFragment extends Fragment {
         //Categorías
         categoriaViewModel = vmp.get(CategoriaViewModel.class);
         gvCategorias = v.findViewById(R.id.gvCategorias);
+        //Productos
+        rcvProductosRecomendados = v.findViewById(R.id.rcvProductosRecomendados);
+        rcvProductosRecomendados.setLayoutManager(new GridLayoutManager(getContext(), 1));
+        productoViewModel = vmp.get(ProductoViewModel.class);
+
+
     }
 
     private void initAdapter() {
@@ -69,6 +88,9 @@ public class InicioFragment extends Fragment {
         //Categorías
         categoriaAdapter = new CategoriaAdapter(getContext(), R.layout.item_categorias, new ArrayList<>());
         gvCategorias.setAdapter(categoriaAdapter);
+        //Productos
+        adapter = new ProductoRecomendadoAdapter(productos);
+        rcvProductosRecomendados.setAdapter(adapter);
     }
 
     private void loadData() {
@@ -88,5 +110,9 @@ public class InicioFragment extends Fragment {
                 System.out.println("Error al obtener las categorías activas");
             }
         });
+        productoViewModel.listarProductosRecomendados().observe(getViewLifecycleOwner(),response -> {
+            adapter.updateItems(response.getBody());
+        });
+
     }
 }

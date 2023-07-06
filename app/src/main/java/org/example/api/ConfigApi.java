@@ -22,12 +22,14 @@ public class ConfigApi {
 
     public static final String ipManuels = "http://192.168.0.18:9090";
     private static Retrofit retrofit;
-    private static String token="";
+    private static String token = "";
 
     private static UsuarioApi usuarioApi;
     private static ClienteApi clienteApi;
     private static DocumentoAlmacenadoApi documentoAlmacenadoApi;
     private static CategoriaApi categoriaApi;
+
+    private static ProductoApi productoApi;
 
     static {
         initClient();
@@ -79,17 +81,27 @@ public class ConfigApi {
         }
         return clienteApi;
     }
+
     public static DocumentoAlmacenadoApi getDocumentoAlmacenadoApi() {
         if (documentoAlmacenadoApi == null) {
             documentoAlmacenadoApi = retrofit.create(DocumentoAlmacenadoApi.class);
         }
         return documentoAlmacenadoApi;
     }
+
     public static CategoriaApi getCategoriaApi() {
         if (categoriaApi == null) {
             categoriaApi = retrofit.create(CategoriaApi.class);
         }
         return categoriaApi;
     }
+
+    public static ProductoApi getProductoApi() {
+        if (productoApi == null) {
+            productoApi = retrofit.create(ProductoApi.class);
+        }
+        return productoApi;
+    }
+
 
 }
