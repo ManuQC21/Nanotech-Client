@@ -30,30 +30,30 @@
                 android:id="@+id/nameProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:fontFamily="@font/san_francisco"
                 android:text="Computadora Gamer"
                 android:textColor="#000000"
-                android:textSize="10dp"
+                android:textSize="16dp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv1"
                 android:layout_width="120dp"
-                android:layout_height="18dp"
+                android:layout_height="12dp"
                 android:layout_below="@id/nameProducto"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="3dp"
                 android:src="@drawable/rating_orange_small" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/iv1"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:fontFamily="@font/san_francisco"
                 android:text="Producto Recomendado"
                 android:textColor="#2e2e2e"
-                android:textSize="8dp" />
+                android:textSize="13dp" />
 
             <Button
                 android:id="@+id/btnOrdenar"
