@@ -13,7 +13,10 @@
     <string name="nav_header_subtitle">mquispecueva1@upao.edu.pe</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Cerrar Sesión</string>
-    <string name="descripcion_producto">Un Producto más</string>
+    <string name="descripcion_producto">Este producto electrónico de computadoras combina potencia y rendimiento en un diseño elegante y compacto. Con una amplia capacidad de almacenamiento y un procesador de última generación, ofrece un rendimiento excepcional. Su carcasa duradera y ergonómica protege los componentes internos, mientras que su tamaño y portabilidad lo hacen perfecto para cualquier entorno. Su descripción detallada permite conocer todas las características y beneficios clave del producto, asegurando una experiencia informática fluida y productiva.</string>
+    <string name="medida_producto">Unidades</string>
+    <string name="cantidad_producto">16</string>
+    <string name="precio_producto">S/16.00</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Mis Compras</string>
     <string name="menu_slideshow">Configuración</string>

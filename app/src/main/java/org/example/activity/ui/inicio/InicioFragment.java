@@ -1,5 +1,6 @@
 package org.example.activity.ui.inicio;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import org.example.R;
 import org.example.adapter.CategoriaAdapter;
 import org.example.adapter.ProductoRecomendadoAdapter;
 import org.example.adapter.SliderAdapter;
+import org.example.communication.Communication;
 import org.example.entity.SliderItem;
 import org.example.entity.service.Producto;
 import org.example.viewmodel.CategoriaViewModel;
@@ -31,7 +33,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InicioFragment extends Fragment {
+public class InicioFragment extends Fragment implements Communication {
 
     private CategoriaViewModel categoriaViewModel;
 
@@ -89,7 +91,7 @@ public class InicioFragment extends Fragment {
         categoriaAdapter = new CategoriaAdapter(getContext(), R.layout.item_categorias, new ArrayList<>());
         gvCategorias.setAdapter(categoriaAdapter);
         //Productos
-        adapter = new ProductoRecomendadoAdapter(productos);
+        adapter = new ProductoRecomendadoAdapter(productos, this);
         rcvProductosRecomendados.setAdapter(adapter);
     }
 
@@ -114,5 +116,11 @@ public class InicioFragment extends Fragment {
             adapter.updateItems(response.getBody());
         });
 
+    }
+
+    @Override
+    public void showDetails(Intent i) {
+        getActivity().startActivity(i);
+        getActivity().overridePendingTransition(R.anim.left_in,R.anim.left_out);
     }
 }

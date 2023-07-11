@@ -5,18 +5,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 
 import org.example.R;
 import org.example.adapter.ProductoPorCategoriaAdapter;
+import org.example.communication.Communication;
 import org.example.entity.service.Producto;
 import org.example.viewmodel.ProductoViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListarProductosPorCategoriaActivity extends AppCompatActivity {
+public class ListarProductosPorCategoriaActivity extends AppCompatActivity implements Communication {
 
     private ProductoViewModel productoViewModel;
     private ProductoPorCategoriaAdapter adapter;
@@ -48,7 +50,7 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity {
     }
     
     private void initAdapter() {
-        adapter = new ProductoPorCategoriaAdapter(producto);
+        adapter = new ProductoPorCategoriaAdapter(producto, this);
         rcvProductosPorCategoria = findViewById(R.id.rcvProductosPorCategoria);
         rcvProductosPorCategoria.setAdapter(adapter);
         rcvProductosPorCategoria.setLayoutManager(new LinearLayoutManager(this));
@@ -61,5 +63,11 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    public void showDetails(Intent i) {
+        startActivity(i);
+        overridePendingTransition(R.anim.above_in, R.anim.above_out);
+    }
 
 }

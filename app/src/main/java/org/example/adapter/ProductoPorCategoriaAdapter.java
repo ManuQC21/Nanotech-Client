@@ -1,6 +1,7 @@
 package org.example.adapter;
 
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,22 +13,34 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import org.example.R;
+import org.example.activity.DetalleProductoActivity;
 import org.example.api.ConfigApi;
+import org.example.communication.Communication;
 import org.example.entity.service.Producto;
+import org.example.utils.DateSerializer;
+import org.example.utils.TimeSerializer;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import java.util.Locale;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPorCategoriaAdapter.ViewHolder> {
     private List<Producto> listadoProductoPorCategoria;
-
-    public ProductoPorCategoriaAdapter(List<Producto> listadoProductoPorCategoria) {
+    private Communication communication;
+    public ProductoPorCategoriaAdapter(List<Producto> listadoProductoPorCategoria, Communication communication) {
         this.listadoProductoPorCategoria = listadoProductoPorCategoria;
+        this.communication = communication;
     }
+
 
     @NonNull
     @Override
@@ -46,11 +59,13 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
     public int getItemCount() {
         return this.listadoProductoPorCategoria.size();
     }
-    public void updateItems(List<Producto> productosByCategoria){
+
+    public void updateItems(List<Producto> productosByCategoria) {
         this.listadoProductoPorCategoria.clear();
         this.listadoProductoPorCategoria.addAll(productosByCategoria);
         this.notifyDataSetChanged();
     }
+
     protected class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView imgProductoC;
         private final TextView nameProducto, txtPriceProductoC;
@@ -77,8 +92,27 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
             nameProducto.setText(p.getNombre());
             txtPriceProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnOrdenarPC.setOnClickListener(v -> {
-                Toast.makeText(this.itemView.getContext(), "Haz presionado el boton ordenar",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.itemView.getContext(), "Haz presionado el boton ordenar", Toast.LENGTH_SHORT).show();
+            });
+
+            //Inicializar la vista del detalle del platillo
+            itemView.setOnClickListener(v -> {
+                final Intent i = new Intent(itemView.getContext(), DetalleProductoActivity.class);
+                final Gson g = new GsonBuilder()
+                        .registerTypeAdapter(Date.class, new DateSerializer())
+                        .registerTypeAdapter(Time.class, new TimeSerializer())
+                        .create();
+                i.putExtra("detalleProducto", g.toJson(p));
+                communication.showDetails(i);
             });
         }
+
+        public void successMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
+                    .setContentText(message).show();
+        }
+
     }
+
 }
