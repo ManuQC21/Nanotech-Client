@@ -2,17 +2,11 @@ package org.example.entity.service;
 
 
 public class Usuario {
-
     private int id;
-
     private String correo;
-
     private String clave;
-
     private boolean vigencia;
-
     private Cliente cliente;
-
 
     public int getId() {
         return id;

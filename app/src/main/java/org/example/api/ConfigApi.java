@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigApi {
 
-    public static final String baseUrlE = "http://192.168.0.18:9090";
+    public static final String baseUrlE = "http://10.0.2.2:9090";
 
     public static final String ipManuels = "http://192.168.0.18:9090";
     private static Retrofit retrofit;
@@ -28,7 +28,7 @@ public class ConfigApi {
     private static ClienteApi clienteApi;
     private static DocumentoAlmacenadoApi documentoAlmacenadoApi;
     private static CategoriaApi categoriaApi;
-
+    private static PedidoApi pedidoApi;
     private static ProductoApi productoApi;
 
     static {
@@ -102,6 +102,11 @@ public class ConfigApi {
         }
         return productoApi;
     }
-
+    public static PedidoApi getPedidoApi(){
+        if(pedidoApi == null){
+            pedidoApi = retrofit.create(PedidoApi.class);
+        }
+        return pedidoApi;
+    }
 
 }

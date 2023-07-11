@@ -1,24 +1,19 @@
 package org.example.entity.service;
 
 
-
-
 public class DetallePedido {
-
-    private int idpedido;
-
+    private int id;
     private int cantidad;
-
     private Double precio;
     private Producto producto;
     private Pedido pedido;
 
-    public int getIdpedido() {
-        return idpedido;
+    public int getId() {
+        return id;
     }
 
-    public void setIdpedido(int idpedido) {
-        this.idpedido = idpedido;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCantidad() {
@@ -37,11 +32,10 @@ public class DetallePedido {
         this.precio = precio;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public Producto getProducto(){
+            return producto;
     }
-
-    public void setProducto(Producto producto) {
+    public void setProducto(Producto producto){
         this.producto = producto;
     }
 
@@ -51,5 +45,17 @@ public class DetallePedido {
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+
+    public void addOne() {
+        this.cantidad++;
+    }
+
+    public void removeOne() {
+        this.cantidad--;
+    }
+
+    public double getTotal() {
+        return this.cantidad * this.precio;
     }
 }

@@ -71,7 +71,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnOrdenar.setOnClickListener(v -> {
-                Toast.makeText(itemView.getContext(), "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(itemView.getContext(), "Hola Mundo", Toast.LENGTH_SHORT).show();
             });
         }
     }

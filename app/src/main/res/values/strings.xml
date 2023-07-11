@@ -13,9 +13,7 @@
     <string name="nav_header_subtitle">mquispecueva1@upao.edu.pe</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Cerrar Sesión</string>
-    <string name="descripcion_Producto">"Este elegante calzado combina comodidad y estilo en cada paso. Con su diseño moderno y materiales de alta calidad, brinda un ajuste perfecto y durabilidad. Ideal para ocasiones formales o informales, este calzado añade un toque de sofisticación a cualquier conjunto. Disfruta de la moda y la comodidad en un solo par."
-    </string>
-
+    <string name="descripcion_producto">Un Producto más</string>
     <string name="menu_home">Inicio</string>
     <string name="menu_gallery">Mis Compras</string>
     <string name="menu_slideshow">Configuración</string>
@@ -53,6 +51,7 @@
         <item>Tacna</item>
         <item>Tumbes</item>
         <item>Ucayali</item>
+        <item>Lima</item>
     </string-array>
     <string-array name="provincias">
         <item>Amazonas</item>
@@ -68,6 +67,7 @@
         <item>Ica</item>
         <item>Junin</item>
         <item>La Libertad</item>
+        <item>Chiclayo</item>
         <item>Lambayeque</item>
         <item>Lima</item>
         <item>Loreto</item>
@@ -80,6 +80,7 @@
         <item>Tacna</item>
         <item>Tumbes</item>
         <item>Ucayali</item>
+        <item>Ferreñafe</item>
     </string-array>
     <string-array name="distritos">
         <item>Abancay</item>
@@ -118,5 +119,10 @@
         <item>Trujillo</item>
         <item>Tumbes</item>
         <item>Yurimaguas</item>
+        <item>Ferreñafe</item>
+        <item>Pueblo Nuevo</item>
+        <item>Mesones Muro</item>
+        <item>Inkahuasi</item>
+        <item>Kañaris</item>
     </string-array>
 </resources>

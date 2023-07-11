@@ -2,25 +2,10 @@ package org.example.entity.service;
 
 
 public class Categoria {
-
     private int id;
-
     private String nombre;
-
-    private boolean stock;
-
+    private boolean vigencia;
     private DocumentoAlmacenado foto;
-
-    public Categoria(int id, String nombre, boolean stock, DocumentoAlmacenado foto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.stock = stock;
-        this.foto = foto;
-    }
-
-    public Categoria() {
-
-    }
 
     public int getId() {
         return id;
@@ -38,12 +23,12 @@ public class Categoria {
         this.nombre = nombre;
     }
 
-    public boolean isStock() {
-        return stock;
+    public boolean isVigencia() {
+        return vigencia;
     }
 
-    public void setStock(boolean stock) {
-        this.stock = stock;
+    public void setVigencia(boolean vigencia) {
+        this.vigencia = vigencia;
     }
 
     public DocumentoAlmacenado getFoto() {

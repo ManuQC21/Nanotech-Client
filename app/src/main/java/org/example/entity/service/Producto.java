@@ -9,19 +9,16 @@ public class Producto {
     private int id;
 
     private String nombre;
-
-    private String medida;
-    private String documento;
-    private int stock;
-    private String razonsocial;
+    private DocumentoAlmacenado foto;
     private Double  precio;
+    private int stock;
     private String descripcion;
-
-    private List<ProductoColor> productoColores;
     private Categoria categoria;
     private boolean vigencia;
     private boolean recomendado;
-    private DocumentoAlmacenado foto;
+    private String medida;
+    private String documento;
+    private String razonsocial;
 
     public int getId() {
         return id;
@@ -81,13 +78,6 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public List<ProductoColor> getProductoColores() {
-        return productoColores;
-    }
-
-    public void setProductoColores(List<ProductoColor> productoColores) {
-        this.productoColores = productoColores;
-    }
 
     public Categoria getCategoria() {
         return categoria;
