@@ -192,13 +192,21 @@
                                 android:drawableEnd="@drawable/ic_add_shop"
                                 android:text="@string/add_shop" />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btnComprar"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:id="@+id/contenedor"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:backgroundTint="#2B0067"
-                                android:drawableEnd="@drawable/ic_money"
-                                android:text="@string/comprar_p" />
+                                android:orientation="vertical">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/btnComprar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="#2B0067"
+                                    android:drawableEnd="@drawable/ic_money"
+                                    android:text="@string/comprar_p" />
+
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>

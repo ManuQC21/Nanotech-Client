@@ -92,7 +92,7 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
             nameProducto.setText(p.getNombre());
             txtPriceProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnOrdenarPC.setOnClickListener(v -> {
-                Toast.makeText(this.itemView.getContext(), "Haz presionado el boton ordenar", Toast.LENGTH_SHORT).show();
+                warningMessage("Las compras se hacen directamente desde un producto");
             });
 
             //Inicializar la vista del detalle del platillo
@@ -112,7 +112,16 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
                     SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
                     .setContentText(message).show();
         }
-
+        public void warningMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.WARNING_TYPE).setTitleText("Para ordenar Primero visualiza la información del producto!")
+                    .setContentText(message).show();
+        }
+        public void errorMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.ERROR_TYPE).setTitleText("Buen Trabajo!")
+                    .setContentText(message).show();
+        }
     }
 
 }

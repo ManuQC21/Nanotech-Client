@@ -77,6 +77,7 @@ public class InicioActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.inicio, menu);
+
         return true;
     }
 
@@ -86,8 +87,17 @@ public class InicioActivity extends AppCompatActivity {
             case R.id.cerrarSesion:
                 this.logout();
                 break;
+            case R.id.bolsaCompras:
+                this.mostrarBolsa();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void mostrarBolsa() {
+        Intent i = new Intent(this, ProductosCarritoActivity.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
     @Override

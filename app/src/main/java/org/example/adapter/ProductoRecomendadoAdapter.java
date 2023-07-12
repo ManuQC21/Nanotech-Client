@@ -87,7 +87,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnOrdenar.setOnClickListener(v -> {
-                Toast.makeText(itemView.getContext(), "Hola Mundo", Toast.LENGTH_SHORT).show();
+                warningMessage("Las compras se hacen directamente desde un producto");
             });
             //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {
@@ -104,6 +104,16 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
         public void successMessage(String message) {
             new SweetAlertDialog(itemView.getContext(),
                     SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
+                    .setContentText(message).show();
+        }
+        public void warningMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.WARNING_TYPE).setTitleText("Para ordenar Primero visualiza la información del producto!")
+                    .setContentText(message).show();
+        }
+        public void errorMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.ERROR_TYPE).setTitleText("Buen Trabajo!")
                     .setContentText(message).show();
         }
     }
