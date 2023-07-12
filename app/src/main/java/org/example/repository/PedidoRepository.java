@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData;
 import org.example.api.ConfigApi;
 import org.example.api.PedidoApi;
 import org.example.entity.GenericResponse;
+import org.example.entity.service.dto.GenerarPedidoDTO;
 import org.example.entity.service.dto.PedidoConDetallesDTO;
 import java.util.List;
 import retrofit2.Call;
@@ -43,5 +44,23 @@ public class PedidoRepository {
         });
         return mld;
     }
+    //GUARDAR PEDIDO CON DETALLES
+    public LiveData<GenericResponse<GenerarPedidoDTO>> save(GenerarPedidoDTO dto) {
+        MutableLiveData<GenericResponse<GenerarPedidoDTO>> data = new MutableLiveData<>();
+        api.guardarPedido(dto).enqueue(new Callback<GenericResponse<GenerarPedidoDTO>>() {
+            @Override
+            public void onResponse(Call<GenericResponse<GenerarPedidoDTO>> call, Response<GenericResponse<GenerarPedidoDTO>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                }
+            }
 
+            @Override
+            public void onFailure(Call<GenericResponse<GenerarPedidoDTO>> call, Throwable t) {
+                data.setValue(new GenericResponse<>());
+                t.printStackTrace();
+            }
+        });
+        return data;
+    }
 }

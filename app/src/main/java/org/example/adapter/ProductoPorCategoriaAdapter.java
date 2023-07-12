@@ -22,7 +22,9 @@ import org.example.R;
 import org.example.activity.DetalleProductoActivity;
 import org.example.api.ConfigApi;
 import org.example.communication.Communication;
+import org.example.entity.service.DetallePedido;
 import org.example.entity.service.Producto;
+import org.example.utils.Carrito;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
 
@@ -92,8 +94,12 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
             nameProducto.setText(p.getNombre());
             txtPriceProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnOrdenarPC.setOnClickListener(v -> {
-                warningMessage("Las compras se hacen directamente desde un producto");
-            });
+                    DetallePedido detallePedido = new DetallePedido();
+                    detallePedido.setProducto(p);
+                    detallePedido.setCantidad(1);
+                    detallePedido.setPrecio(p.getPrecio());
+                    successMessage(Carrito.agregarProductos(detallePedido));
+                });
 
             //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {
@@ -109,7 +115,7 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
 
         public void successMessage(String message) {
             new SweetAlertDialog(itemView.getContext(),
-                    SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
+                    SweetAlertDialog.SUCCESS_TYPE).setTitleText("! Disfrute su Producto !")
                     .setContentText(message).show();
         }
         public void warningMessage(String message) {

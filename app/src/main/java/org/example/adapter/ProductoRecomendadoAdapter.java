@@ -22,7 +22,9 @@ import org.example.R;
 import org.example.activity.DetalleProductoActivity;
 import org.example.api.ConfigApi;
 import org.example.communication.Communication;
+import org.example.entity.service.DetallePedido;
 import org.example.entity.service.Producto;
+import org.example.utils.Carrito;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
 
@@ -36,6 +38,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
 
     private List<Producto> producto;
     private final Communication communication;
+
 
     public ProductoRecomendadoAdapter(List<Producto> producto, Communication communication) {
         this.producto = producto;
@@ -87,7 +90,11 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnOrdenar.setOnClickListener(v -> {
-                warningMessage("Las compras se hacen directamente desde un producto");
+                DetallePedido detallePedido = new DetallePedido();
+                detallePedido.setProducto(p);
+                detallePedido.setCantidad(1);
+                detallePedido.setPrecio(p.getPrecio());
+                successMessage(Carrito.agregarProductos(detallePedido));
             });
             //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {
@@ -103,7 +110,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
 
         public void successMessage(String message) {
             new SweetAlertDialog(itemView.getContext(),
-                    SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
+                    SweetAlertDialog.SUCCESS_TYPE).setTitleText("! Disfrute su Producto !")
                     .setContentText(message).show();
         }
         public void warningMessage(String message) {
