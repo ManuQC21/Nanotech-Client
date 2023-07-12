@@ -23,7 +23,4 @@ public interface PedidoApi {
     @GET(base + "/misPedidos/{idCli}")
     Call<GenericResponse<List<PedidoConDetallesDTO>>> listarPedidosPorCliente(@Path("idCli") int idCli);
 
-    @POST(base)
-    Call<GenericResponse<GenerarPedidoDTO>> guardarPedido(@Body GenerarPedidoDTO dto);
-
 }

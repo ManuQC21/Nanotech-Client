@@ -60,6 +60,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
         this.imgProductoDetalle = findViewById(R.id.imgProductoDetalle);
         this.btnAgregarCarrito = findViewById(R.id.btnAgregarCarrito);
         this.btnComprar = findViewById(R.id.btnComprar);
+        LinearLayout contenedor = findViewById(R.id.contenedor);
         this.tvNameProductoDetalle = findViewById(R.id.tvNameProductoDetalle);
         this.tvMedidaProductoDetalle = findViewById(R.id.tvMedidaProductoDetalle);
         this.tvStockProductoDetalle = findViewById(R.id.tvStockProductoDetalle);
@@ -67,7 +68,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
         this.tvDescripcionProductoDetalle = findViewById(R.id.tvDescripcionProductoDetalle);
 
     }
-    private void agregarAlCarrito() {
+    public void agregarAlCarrito() {
         DetallePedido detallePedido = new DetallePedido();
         detallePedido.setProducto(producto);
         detallePedido.setCantidad(1);
@@ -96,7 +97,6 @@ public class DetalleProductoActivity extends AppCompatActivity {
         }
         //Agregar al Carrito
         this.btnAgregarCarrito.setOnClickListener(v -> agregarAlCarrito());
-
         //Compra individual
         this.btnComprar.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
