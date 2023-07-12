@@ -89,12 +89,12 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
             nameProducto.setText(p.getNombre());
             txtPriceProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnOrdenarPC.setOnClickListener(v -> {
-                int stock = productos.getStock();
+                int stock = p.getStock(); // Utilizar la variable p en lugar de pr
                 if (stock >= 1) {
                     DetallePedido detallePedido = new DetallePedido();
-                    detallePedido.setProducto(productos);
-                    detallePedido.setCantidad(1);
-                    detallePedido.setPrecio(productos.getPrecio());
+                    detallePedido.setProducto(p); // Utilizar la variable p en lugar de pr
+                    detallePedido.setCantidad(stock); // Utilizar la máxima cantidad de stock disponible
+                    detallePedido.setPrecio(p.getPrecio()); // Utilizar la variable p en lugar de pr
                     successMessage(Carrito.agregarProductos(detallePedido));
                 } else {
                     warningMessage("Producto sin stock disponible.");

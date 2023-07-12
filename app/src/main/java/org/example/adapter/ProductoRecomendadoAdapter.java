@@ -1,6 +1,5 @@
 package org.example.adapter;
 
-
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +31,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRecomendadoAdapter.ViewHolder> {
 
     private List<Producto> producto;
-    Producto productos;
+    Producto pr;
     private final Communication communication;
 
     public ProductoRecomendadoAdapter(List<Producto> producto, Communication communication) {
@@ -70,6 +69,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
         }
 
         public void setItem(final Producto p) {
+            pr = p;
             ImageView imgProducto = itemView.findViewById(R.id.imgProducto);
             TextView nameProducto = itemView.findViewById(R.id.nameProducto);
             Button btnOrdenar = itemView.findViewById(R.id.btnOrdenar);
@@ -84,12 +84,12 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnOrdenar.setOnClickListener(v -> {
-                int stock = productos.getStock();
+                int stock = p.getStock(); // Utilizar la variable p en lugar de pr
                 if (stock >= 1) {
                     DetallePedido detallePedido = new DetallePedido();
-                    detallePedido.setProducto(productos);
-                    detallePedido.setCantidad(1);
-                    detallePedido.setPrecio(productos.getPrecio());
+                    detallePedido.setProducto(p); // Utilizar la variable p en lugar de pr
+                    detallePedido.setCantidad(stock); // Utilizar la máxima cantidad de stock disponible
+                    detallePedido.setPrecio(p.getPrecio()); // Utilizar la variable p en lugar de pr
                     successMessage(Carrito.agregarProductos(detallePedido));
                 } else {
                     warningMessage("Producto sin stock disponible.");
@@ -113,7 +113,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
         }
         public void warningMessage(String message) {
             new SweetAlertDialog(itemView.getContext(),
-                    SweetAlertDialog.WARNING_TYPE).setTitleText("Para ordenar Primero visualiza la información del producto!")
+                    SweetAlertDialog.WARNING_TYPE).setTitleText("Le invitamos a ver otros productos")
                     .setContentText(message).show();
         }
         public void errorMessage(String message) {
