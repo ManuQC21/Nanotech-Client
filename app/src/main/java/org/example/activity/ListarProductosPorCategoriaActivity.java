@@ -5,30 +5,20 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.badge.BadgeUtils;
-
 import org.example.R;
 import org.example.adapter.ProductoPorCategoriaAdapter;
-import org.example.adapter.ProductoRecomendadoAdapter;
 import org.example.communication.Communication;
-import org.example.communication.MostrarBadgeCommunication;
-import org.example.entity.service.DetallePedido;
 import org.example.entity.service.Producto;
-import org.example.utils.Carrito;
 import org.example.viewmodel.ProductoViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
-
-public class ListarProductosPorCategoriaActivity extends AppCompatActivity implements Communication, MostrarBadgeCommunication {
+public class ListarProductosPorCategoriaActivity extends AppCompatActivity implements Communication {
 
     private ProductoViewModel productoViewModel;
     private ProductoPorCategoriaAdapter adapter;
@@ -62,7 +52,7 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity imple
 
 
     private void initAdapter() {
-        adapter = new ProductoPorCategoriaAdapter(producto, this,this);
+        adapter = new ProductoPorCategoriaAdapter(producto, this);
         rcvProductosPorCategoria = findViewById(R.id.rcvProductosPorCategoria);
         rcvProductosPorCategoria.setAdapter(adapter);
         rcvProductosPorCategoria.setLayoutManager(new LinearLayoutManager(this));
@@ -83,20 +73,4 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity imple
         overridePendingTransition(R.anim.above_in, R.anim.above_out);
     }
 
-    @SuppressLint("UnsafeExperimentalUsageError")
-    @Override
-    public void add(DetallePedido dp) {
-        successMessage(Carrito.agregarProductos(dp));
-        BadgeDrawable badgeDrawable = BadgeDrawable.create(this);
-        badgeDrawable.setNumber(Carrito.getDetallePedidos().size());
-        BadgeUtils.attachBadgeDrawable(badgeDrawable, findViewById(R.id.toolbar), R.id.bolsaCompras);
-    }
-
-    public void successMessage(String message) {
-        new SweetAlertDialog(this,
-                SweetAlertDialog.SUCCESS_TYPE)
-                .setTitleText("Buen Trabajo!")
-                .setContentText(message)
-                .show();
-    }
 }

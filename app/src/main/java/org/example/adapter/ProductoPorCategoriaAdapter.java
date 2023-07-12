@@ -22,8 +22,6 @@ import org.example.R;
 import org.example.activity.DetalleProductoActivity;
 import org.example.api.ConfigApi;
 import org.example.communication.Communication;
-import org.example.communication.MostrarBadgeCommunication;
-import org.example.entity.service.DetallePedido;
 import org.example.entity.service.Producto;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
@@ -37,14 +35,10 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPorCategoriaAdapter.ViewHolder> {
     private List<Producto> listadoProductoPorCategoria;
-    private final Communication communication;
-    private final MostrarBadgeCommunication mostrarBadgeCommunication;
-
-
-    public ProductoPorCategoriaAdapter(List<Producto> listadoProductoPorCategoria, Communication communication, MostrarBadgeCommunication mostrarBadgeCommunication) {
+    private Communication communication;
+    public ProductoPorCategoriaAdapter(List<Producto> listadoProductoPorCategoria, Communication communication) {
         this.listadoProductoPorCategoria = listadoProductoPorCategoria;
         this.communication = communication;
-        this.mostrarBadgeCommunication = mostrarBadgeCommunication;
     }
 
 
@@ -98,13 +92,9 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
             nameProducto.setText(p.getNombre());
             txtPriceProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnOrdenarPC.setOnClickListener(v -> {
-                DetallePedido detallePedido = new DetallePedido();
-                detallePedido.setProducto(p);
-                detallePedido.setCantidad(1);
-                detallePedido.setPrecio(p.getPrecio());
-                mostrarBadgeCommunication.add(detallePedido);
-                //successMessage(Carrito.agregarPlatillos(detallePedido));
+                warningMessage("Las compras se hacen directamente desde un producto");
             });
+
             //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {
                 final Intent i = new Intent(itemView.getContext(), DetalleProductoActivity.class);
