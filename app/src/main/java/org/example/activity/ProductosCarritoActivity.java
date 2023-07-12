@@ -76,7 +76,7 @@ public class ProductosCarritoActivity extends AppCompatActivity implements Carri
                     toastIncorrecto("¡Ups!, La bolsa de compras está vacia.");
                 } else {
                     toastCorrecto("Procesando pedido...");
-                    //registrarPedido(idC);
+                    registrarPedido(idC);
                 }
             } else {
                 toastIncorrecto("No ha iniciado sesión, se le redirigirá al login");
