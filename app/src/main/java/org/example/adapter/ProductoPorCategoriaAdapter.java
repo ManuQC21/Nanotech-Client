@@ -94,12 +94,12 @@ public class ProductoPorCategoriaAdapter extends RecyclerView.Adapter<ProductoPo
             nameProducto.setText(p.getNombre());
             txtPriceProductoC.setText(String.format(Locale.ENGLISH, "S/%.2f", p.getPrecio()));
             btnOrdenarPC.setOnClickListener(v -> {
-                    DetallePedido detallePedido = new DetallePedido();
-                    detallePedido.setProducto(p);
-                    detallePedido.setCantidad(1);
-                    detallePedido.setPrecio(p.getPrecio());
-                    successMessage(Carrito.agregarProductos(detallePedido));
-                });
+                DetallePedido detallePedido = new DetallePedido();
+                detallePedido.setProducto(p);
+                detallePedido.setCantidad(1);
+                detallePedido.setPrecio(p.getPrecio());
+                successMessage(Carrito.agregarProductos(detallePedido));
+            });
 
             //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {

@@ -39,7 +39,6 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
     private List<Producto> producto;
     private final Communication communication;
 
-
     public ProductoRecomendadoAdapter(List<Producto> producto, Communication communication) {
         this.producto = producto;
         this.communication = communication;
