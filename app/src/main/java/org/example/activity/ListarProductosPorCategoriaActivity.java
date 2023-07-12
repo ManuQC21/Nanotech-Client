@@ -35,7 +35,6 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity imple
         loadData();
 
 
-
     }
     private void init() {
         Toolbar toolbar = this.findViewById(R.id.toolbar);
@@ -49,8 +48,7 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity imple
         final ViewModelProvider vmp = new ViewModelProvider(this);
         this.productoViewModel = vmp.get(ProductoViewModel.class);
     }
-
-
+    
     private void initAdapter() {
         adapter = new ProductoPorCategoriaAdapter(producto, this);
         rcvProductosPorCategoria = findViewById(R.id.rcvProductosPorCategoria);
@@ -64,7 +62,6 @@ public class ListarProductosPorCategoriaActivity extends AppCompatActivity imple
             adapter.updateItems(response.getBody());
         });
     }
-
 
 
     @Override

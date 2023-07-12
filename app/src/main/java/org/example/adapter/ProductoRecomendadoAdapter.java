@@ -22,8 +22,6 @@ import org.example.R;
 import org.example.activity.DetalleProductoActivity;
 import org.example.api.ConfigApi;
 import org.example.communication.Communication;
-import org.example.communication.MostrarBadgeCommunication;
-import org.example.entity.service.DetallePedido;
 import org.example.entity.service.Producto;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
@@ -38,13 +36,10 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
 
     private List<Producto> producto;
     private final Communication communication;
-    private final MostrarBadgeCommunication mostrarBadgeCommunication;
 
-
-    public ProductoRecomendadoAdapter(List<Producto> producto, Communication communication, MostrarBadgeCommunication mostrarBadgeCommunication) {
+    public ProductoRecomendadoAdapter(List<Producto> producto, Communication communication) {
         this.producto = producto;
         this.communication = communication;
-        this.mostrarBadgeCommunication = mostrarBadgeCommunication;
     }
 
     @NonNull
@@ -92,12 +87,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnOrdenar.setOnClickListener(v -> {
-                DetallePedido detallePedido = new DetallePedido();
-                detallePedido.setProducto(p);
-                detallePedido.setCantidad(1);
-                detallePedido.setPrecio(p.getPrecio());
-                mostrarBadgeCommunication.add(detallePedido);
-                //successMessage(Carrito.agregarPlatillos(detallePedido));
+                warningMessage("Las compras se hacen directamente desde un producto");
             });
             //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {
@@ -109,6 +99,22 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                 i.putExtra("detalleProducto", g.toJson(p));
                 communication.showDetails(i);
             });
+        }
+
+        public void successMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
+                    .setContentText(message).show();
+        }
+        public void warningMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.WARNING_TYPE).setTitleText("Para ordenar Primero visualiza la información del producto!")
+                    .setContentText(message).show();
+        }
+        public void errorMessage(String message) {
+            new SweetAlertDialog(itemView.getContext(),
+                    SweetAlertDialog.ERROR_TYPE).setTitleText("Buen Trabajo!")
+                    .setContentText(message).show();
         }
     }
 }
