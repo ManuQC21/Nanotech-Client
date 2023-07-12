@@ -47,7 +47,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Código Compras : "
                         android:textColor="#fff"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -60,7 +60,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="C0001"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -74,7 +74,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Producto : "
                         android:textColor="#fff"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -87,7 +87,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="LA PC GAMER"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -101,7 +101,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Cantidad :  "
                         android:textColor="#fff"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -114,7 +114,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="2"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -128,7 +128,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Precio Unitario : "
                         android:textColor="#fff"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -141,7 +141,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="S/. 25.00"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="13sp" />
                 </RelativeLayout>
 
             </LinearLayout>

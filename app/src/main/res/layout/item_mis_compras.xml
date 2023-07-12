@@ -35,7 +35,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Código Compras : "
                         android:textColor="#fff"
-                        android:textSize="17sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -48,7 +48,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="C0001"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -62,7 +62,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Fecha Compras : "
                         android:textColor="#fff"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -75,7 +75,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="10/07/2021"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -89,7 +89,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Monto :  "
                         android:textColor="#fff"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
                     <TextView
                         android:id="@+id/txtValueAmount"
@@ -101,7 +101,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="S/. 3500.00"
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -115,7 +115,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Estado del Pedido : "
                         android:textColor="#fff"
-                        android:textSize="18sp"
+                        android:textSize="15sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -128,7 +128,7 @@
                         android:fontFamily="@font/san_francisco"
                         android:text="Despachado y Enviando ..."
                         android:textColor="#F4EDED"
-                        android:textSize="15sp" />
+                        android:textSize="14sp" />
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>

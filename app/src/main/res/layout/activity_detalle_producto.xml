@@ -188,8 +188,9 @@
                                 android:id="@+id/btnAgregarCarrito"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="8dp"
+                                android:layout_marginEnd="4dp"
                                 android:drawableEnd="@drawable/ic_add_shop"
+                                android:textSize="11sp"
                                 android:text="@string/add_shop" />
 
                             <LinearLayout
@@ -204,6 +205,7 @@
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="#2B0067"
                                     android:drawableEnd="@drawable/ic_money"
+                                    android:textSize="11sp"
                                     android:text="@string/comprar_p" />
 
                             </LinearLayout>

@@ -89,6 +89,8 @@
                         android:id="@+id/btnDecrease"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginTop="5dp"
                         android:layout_toStartOf="@id/edtCantidad"
                         android:background="#F4F2F2"
                         android:src="@drawable/ic_remove_item" />
@@ -96,7 +98,7 @@
                     <EditText
                         android:id="@+id/edtCantidad"
                         android:layout_width="50dp"
-                        android:layout_height="35dp"
+                        android:layout_height="38dp"
                         android:layout_toStartOf="@id/btnAdd"
                         android:fontFamily="@font/san_francisco"
                         android:inputType="none"
@@ -112,6 +114,7 @@
                         android:id="@+id/btnAdd"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:layout_alignParentEnd="true"
                         android:background="#F4F2F2"
                         android:src="@drawable/ic_add_item" />

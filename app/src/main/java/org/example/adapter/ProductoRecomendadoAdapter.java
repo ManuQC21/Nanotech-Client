@@ -88,7 +88,7 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                 if (stock >= 1) {
                     DetallePedido detallePedido = new DetallePedido();
                     detallePedido.setProducto(p); // Utilizar la variable p en lugar de pr
-                    detallePedido.setCantidad(stock); // Utilizar la máxima cantidad de stock disponible
+                    detallePedido.setCantidad(1);
                     detallePedido.setPrecio(p.getPrecio()); // Utilizar la variable p en lugar de pr
                     successMessage(Carrito.agregarProductos(detallePedido));
                 } else {
