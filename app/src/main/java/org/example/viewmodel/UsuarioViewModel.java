@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
 import org.example.entity.GenericResponse;
 import org.example.entity.service.Usuario;
 import org.example.repository.UsuarioRepository;

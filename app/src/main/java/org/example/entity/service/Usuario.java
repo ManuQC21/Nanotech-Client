@@ -7,7 +7,6 @@ public class Usuario {
     private String clave;
     private boolean vigencia;
     private Cliente cliente;
-
     public int getId() {
         return id;
     }

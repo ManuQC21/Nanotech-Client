@@ -4,7 +4,6 @@ package org.example.entity.service.dto;
 import org.example.entity.service.Cliente;
 import org.example.entity.service.DetallePedido;
 import org.example.entity.service.Pedido;
-
 import java.util.ArrayList;
 
 public class GenerarPedidoDTO {

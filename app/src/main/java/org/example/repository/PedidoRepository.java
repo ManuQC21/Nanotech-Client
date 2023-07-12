@@ -44,7 +44,6 @@ public class PedidoRepository {
         });
         return mld;
     }
-    //GUARDAR PEDIDO CON DETALLES
     public LiveData<GenericResponse<GenerarPedidoDTO>> save(GenerarPedidoDTO dto) {
         MutableLiveData<GenericResponse<GenerarPedidoDTO>> data = new MutableLiveData<>();
         api.guardarPedido(dto).enqueue(new Callback<GenericResponse<GenerarPedidoDTO>>() {

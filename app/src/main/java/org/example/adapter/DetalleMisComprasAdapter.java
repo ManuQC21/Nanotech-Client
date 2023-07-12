@@ -69,7 +69,6 @@ public class DetalleMisComprasAdapter extends RecyclerView.Adapter<DetalleMisCom
                         .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
                         .build();
                 picasso.load(url)
-                        //.networkPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                         .error(R.drawable.image_not_found)
                         .into(imgdetalle);
                 txtValueCodDetailPurchases.setText("C000" + Integer.toString(detalle.getPedido().getId()));

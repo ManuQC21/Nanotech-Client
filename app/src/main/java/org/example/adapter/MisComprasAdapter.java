@@ -80,7 +80,7 @@ public class MisComprasAdapter extends RecyclerView.Adapter<MisComprasAdapter.Vi
                         .registerTypeAdapter(Time.class, new TimeSerializer())
                         .create();
                 i.putExtra("detailsPurchases", g.toJson(dto.getDetallePedido()));
-                communication.showDetails(i);//Esto es solo para dar una animación.
+                communication.showDetails(i);
             });
         }
     }

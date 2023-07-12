@@ -80,12 +80,12 @@ public class InicioFragment extends Fragment implements Communication {
         //Carrusel de Imágenes
         sliderAdapter = new SliderAdapter(getContext());
         svCarrusel.setSliderAdapter(sliderAdapter);
-        svCarrusel.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using IndicatorAnimationType. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        svCarrusel.setIndicatorAnimation(IndicatorAnimationType.WORM);
         svCarrusel.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
         svCarrusel.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
         svCarrusel.setIndicatorSelectedColor(Color.WHITE);
         svCarrusel.setIndicatorUnselectedColor(Color.GRAY);
-        svCarrusel.setScrollTimeInSec(4); //set scroll delay in seconds :
+        svCarrusel.setScrollTimeInSec(4);
         svCarrusel.startAutoCycle();
         //Categorías
         categoriaAdapter = new CategoriaAdapter(getContext(), R.layout.item_categorias, new ArrayList<>());

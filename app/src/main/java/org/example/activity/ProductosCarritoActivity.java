@@ -60,7 +60,7 @@ public class ProductosCarritoActivity extends AppCompatActivity implements Carri
     private void init(){
         Toolbar toolbar = this.findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_volver_atras);
-        toolbar.setNavigationOnClickListener(v -> {//Reemplazo con lamba
+        toolbar.setNavigationOnClickListener(v -> {
             this.finish();
             this.overridePendingTransition(R.anim.rigth_in, R.anim.rigth_out);
         });

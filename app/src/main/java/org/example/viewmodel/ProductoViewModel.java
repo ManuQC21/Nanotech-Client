@@ -2,10 +2,8 @@ package org.example.viewmodel;
 
 
 import android.app.Application;
-
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
 import org.example.entity.GenericResponse;
 import org.example.entity.service.Producto;
 import org.example.repository.ProductoRepository;

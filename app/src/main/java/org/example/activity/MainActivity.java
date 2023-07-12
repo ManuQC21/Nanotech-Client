@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 if (validar()) {
                     viewModel.login(edtMail.getText().toString(),edtPassword.getText().toString()).observe(this, usuarioGenericResponse -> {
                         if (usuarioGenericResponse.getRpta()== 1 ) {
-                            //Toast.makeText(this, usuarioGenericResponse.getMessage(), Toast.LENGTH_SHORT).show();
                             toastCorrecto(usuarioGenericResponse.getMessage());
                             Usuario u = usuarioGenericResponse.getBody();
                             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -80,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                             edtPassword.setText("");
                             startActivity(new Intent(this, InicioActivity.class));
                         } else {
-                            //Toast.makeText(this, "Ocurrió un Error: " + usuarioGenericResponse.getMessage(), Toast.LENGTH_SHORT).show();
                             toastIncorrecto(usuarioGenericResponse.getMessage());
                         }
                     });

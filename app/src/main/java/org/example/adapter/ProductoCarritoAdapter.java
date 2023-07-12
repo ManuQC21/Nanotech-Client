@@ -8,19 +8,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
-
 import org.example.R;
 import org.example.api.ConfigApi;
 import org.example.communication.CarritoCommunication;
 import org.example.entity.service.DetallePedido;
-import org.example.entity.service.Producto;
-
 import java.util.List;
 import java.util.Locale;
 
@@ -80,12 +75,10 @@ public class ProductoCarritoAdapter extends RecyclerView.Adapter<ProductoCarrito
             picasso.load(url)
                     .error(R.drawable.image_not_found)
                     .into(this.imgProductoDC);
-            //------------------Eliminar item del carrito-----------------------
             this.btnEliminarPCarrito.setOnClickListener(v -> {
                 toastCorrecto("Producto eliminado exitosamente");
                 c.eliminarDetalle(dp.getProducto().getId());
             });
-            //-------------Actualizar Cantidad del Carrito-------------------------
             btnAdd.setOnClickListener(v -> {
                 if (dp.getCantidad() != stockMaximo) {
                     dp.addOne();

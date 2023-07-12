@@ -42,13 +42,12 @@ public class CategoriaAdapter extends ArrayAdapter<Categoria> {
                 .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
                 .build();
         picasso.load(url + c.getFoto().getFileName())
-                //.networkPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                 .error(R.drawable.image_not_found)
                 .into(imgCategoria);
         txtNombreCategoria.setText(c.getNombre());
         convertView.setOnClickListener(v -> {
             Intent i = new Intent(getContext(), ListarProductosPorCategoriaActivity.class);
-            i.putExtra("idC", c.getId());//Obtenenmos el id de la Categoria
+            i.putExtra("idC", c.getId());
             getContext().startActivity(i);
         });
         return convertView;

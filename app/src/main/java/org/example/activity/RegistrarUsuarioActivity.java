@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -26,9 +25,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.example.R;
-
 import org.example.entity.service.Cliente;
 import org.example.entity.service.DocumentoAlmacenado;
 import org.example.entity.service.Usuario;
@@ -36,12 +33,9 @@ import org.example.viewmodel.ClienteViewModel;
 import org.example.viewmodel.DocumentoAlmacenadoViewModel;
 import org.example.viewmodel.UsuarioViewModel;
 import com.google.android.material.textfield.TextInputLayout;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 import java.time.LocalDateTime;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
@@ -161,7 +155,6 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
         btnGuardarDatos.setOnClickListener(v -> {
             this.guardarDatos();
         });
-        ///ONCHANGE LISTENEER A LOS EDITEXT
         edtNameUser.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -340,22 +333,21 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                 c.setTelefono(edtTelefonoU.getText().toString());
                 c.setDireccionEnvio(edtDireccionU.getText().toString());
                 c.setId(0);
-                LocalDateTime ldt = LocalDateTime.now(); //Para generar el nombre al archivo en base a la fecha, hora, año
-                RequestBody rb = RequestBody.create(f, MediaType.parse("multipart/form-data")), somedata; //Le estamos enviando un archivo (imagen) desde el formulario
+                LocalDateTime ldt = LocalDateTime.now();
+                RequestBody rb = RequestBody.create(f, MediaType.parse("multipart/form-data")), somedata;
                 String filename = "" + ldt.getDayOfMonth() + (ldt.getMonthValue() + 1) +
                         ldt.getYear() + ldt.getHour()
-                        + ldt.getMinute() + ldt.getSecond(); //Asignar un nombre al archivo (imagen)
+                        + ldt.getMinute() + ldt.getSecond();
                 MultipartBody.Part part = MultipartBody.Part.createFormData("file", f.getName(), rb);
-                somedata = RequestBody.create("profilePh" + filename, MediaType.parse("text/plain")); //Le estamos enviando un nombre al archivo.
+                somedata = RequestBody.create("profilePh" + filename, MediaType.parse("text/plain"));
                 this.documentoAlmacenadoViewModel.save(part, somedata).observe(this, response -> {
                     if (response.getRpta() == 1) {
                         c.setFoto(new DocumentoAlmacenado());
-                        c.getFoto().setId(response.getBody().getId());//Asignamos la foto al cliente
+                        c.getFoto().setId(response.getBody().getId());
                         this.clienteViewModel.guardarCliente(c).observe(this, cResponse -> {
                             if (cResponse.getRpta() == 1) {
-
-                                //Toast.makeText(this, response.getMessage() + ", ahora procederemos a registrar sus credenciales.", Toast.LENGTH_SHORT).show();
-                                int idc = cResponse.getBody().getId();//Obtener el id del cliente.
+                                Toast.makeText(this, response.getMessage() + ", ahora procederemos a registrar sus credenciales.", Toast.LENGTH_SHORT).show();
+                                int idc = cResponse.getBody().getId();
                                 Usuario u = new Usuario();
                                 u.setCorreo(edtEmailUser.getText().toString());
                                 u.setClave(edtPasswordUser.getText().toString());

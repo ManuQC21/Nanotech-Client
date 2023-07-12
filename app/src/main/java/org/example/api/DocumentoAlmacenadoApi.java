@@ -2,7 +2,6 @@ package org.example.api;
 
 import org.example.entity.GenericResponse;
 import org.example.entity.service.DocumentoAlmacenado;
-
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;

@@ -1,9 +1,7 @@
 package org.example.api;
 
-
 import org.example.entity.GenericResponse;
 import org.example.entity.service.Usuario;
-
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;

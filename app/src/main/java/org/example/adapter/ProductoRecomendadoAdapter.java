@@ -8,16 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
-
 import org.example.R;
 import org.example.activity.DetalleProductoActivity;
 import org.example.api.ConfigApi;
@@ -27,7 +23,6 @@ import org.example.entity.service.Producto;
 import org.example.utils.Carrito;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
-
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -37,6 +32,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRecomendadoAdapter.ViewHolder> {
 
     private List<Producto> producto;
+    Producto productos;
     private final Communication communication;
 
     public ProductoRecomendadoAdapter(List<Producto> producto, Communication communication) {
@@ -84,18 +80,21 @@ public class ProductoRecomendadoAdapter extends RecyclerView.Adapter<ProductoRec
                     .downloader(new OkHttp3Downloader(ConfigApi.getClient()))
                     .build();
             picasso.load(url)
-                    //.networkPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                     .error(R.drawable.image_not_found)
                     .into(imgProducto);
             nameProducto.setText(p.getNombre());
             btnOrdenar.setOnClickListener(v -> {
-                DetallePedido detallePedido = new DetallePedido();
-                detallePedido.setProducto(p);
-                detallePedido.setCantidad(1);
-                detallePedido.setPrecio(p.getPrecio());
-                successMessage(Carrito.agregarProductos(detallePedido));
+                int stock = productos.getStock();
+                if (stock >= 1) {
+                    DetallePedido detallePedido = new DetallePedido();
+                    detallePedido.setProducto(productos);
+                    detallePedido.setCantidad(1);
+                    detallePedido.setPrecio(productos.getPrecio());
+                    successMessage(Carrito.agregarProductos(detallePedido));
+                } else {
+                    warningMessage("Producto sin stock disponible.");
+                }
             });
-            //Inicializar la vista del detalle del platillo
             itemView.setOnClickListener(v -> {
                 final Intent i = new Intent(itemView.getContext(), DetalleProductoActivity.class);
                 final Gson g = new GsonBuilder()
