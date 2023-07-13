@@ -3,6 +3,7 @@ package org.example.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
@@ -88,6 +89,12 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
 
     private void initViewModel() {
         final ViewModelProvider vmp = new ViewModelProvider(this);
+        Toolbar toolbar = this.findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_volver_atras);
+        toolbar.setNavigationOnClickListener(v -> {
+            this.finish();
+            this.overridePendingTransition(R.anim.rigth_in, R.anim.rigth_out);
+        });
         this.clienteViewModel = vmp.get(ClienteViewModel.class);
         this.usuarioViewModel = vmp.get(UsuarioViewModel.class);
         this.documentoAlmacenadoViewModel = vmp.get(DocumentoAlmacenadoViewModel.class);
@@ -358,7 +365,7 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                                     if (uResponse.getRpta() == 1) {
                                         //Toast.makeText(this, "Sus Datos y credenciales fueron creados correctamente", Toast.LENGTH_SHORT).show();
                                         successMessage("Estupendo! " + "Su información ha sido guardada con éxito en el sistema.");
-                                        //this.finish();
+                                        this.finish();
                                     } else {
                                         toastIncorrecto("No se ha podido guardar los datos, intentelo de nuevo");
                                     }
