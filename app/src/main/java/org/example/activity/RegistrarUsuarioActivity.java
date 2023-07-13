@@ -371,11 +371,11 @@ public class RegistrarUsuarioActivity extends AppCompatActivity {
                                     }
                                 });
                             } else {
-                                toastIncorrecto("No se ha podido guardar los datos, intentelo de nuevo");
+                                toastIncorrecto("Uy lo sentimos ya existe un usuario con ese DNI");
                             }
                         });
                     } else {
-                        toastIncorrecto("No se ha podido guardar los datos, intentelo de nuevo");
+                        toastIncorrecto("Algo esta haciendo mal revise bien sus datos");
                     }
                 });
             } catch (Exception e) {
