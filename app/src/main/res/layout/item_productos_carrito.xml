@@ -34,14 +34,15 @@
                     android:layout_marginLeft="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/proyec" />
+
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/btnEliminarPCarrito"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="35dp"
-                android:layout_marginStart="350dp"
+                android:layout_marginStart="290dp"
                 android:src="@drawable/ic_borrar" />
             <LinearLayout
                 android:layout_width="match_parent"

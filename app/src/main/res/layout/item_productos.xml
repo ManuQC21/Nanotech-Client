@@ -7,15 +7,15 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="85dp"
         android:layout_margin="5dp"
         android:elevation="5dp"
         app:cardCornerRadius="10dp">
 
         <ImageView
             android:id="@+id/imgProducto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
             android:src="@drawable/pc" />
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="27dp"
                 android:layout_marginRight="0dp"
                 android:backgroundTint="#1B8010"
                 android:fontFamily="@font/san_francisco"
