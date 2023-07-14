@@ -3,12 +3,15 @@ package org.example.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
@@ -28,6 +31,9 @@ import org.example.databinding.ActivityInicioBinding;
 import org.example.entity.service.Usuario;
 import org.example.utils.DateSerializer;
 import org.example.utils.TimeSerializer;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.Date;
 import java.sql.Time;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -43,6 +49,7 @@ public class InicioActivity extends AppCompatActivity {
 
         binding = ActivityInicioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        View view = binding.getRoot();
 
         setSupportActionBar(binding.appBarInicio.toolbar);
         binding.appBarInicio.fab.setOnClickListener(new View.OnClickListener() {
@@ -61,12 +68,32 @@ public class InicioActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_inicio);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        binding.appBarInicio.fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirWhatsApp();
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.inicio, menu);
         return true;
+    }
+    private void abrirWhatsApp() {
+        String mensaje = "¡Hola! Estoy interesado en tus productos. ¿Podrías brindarme más información?";
+        try {
+            mensaje = URLEncoder.encode(mensaje, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        String url = "https://api.whatsapp.com/send?phone=+51943887016&text=" + mensaje;
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

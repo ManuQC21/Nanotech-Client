@@ -7,14 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
@@ -29,7 +27,6 @@ import org.example.entity.service.Producto;
 import org.example.viewmodel.CategoriaViewModel;
 import org.example.viewmodel.ProductoViewModel;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,9 +70,7 @@ public class InicioFragment extends Fragment implements Communication {
         rcvProductosRecomendados.setLayoutManager(new GridLayoutManager(getContext(), 1));
         productoViewModel = vmp.get(ProductoViewModel.class);
 
-
     }
-
     private void initAdapter() {
         //Carrusel de Imágenes
         sliderAdapter = new SliderAdapter(getContext());
@@ -94,7 +89,6 @@ public class InicioFragment extends Fragment implements Communication {
         adapter = new ProductoRecomendadoAdapter(productos, this);
         rcvProductosRecomendados.setAdapter(adapter);
     }
-
     private void loadData() {
 
         List<SliderItem> lista = new ArrayList<>();
