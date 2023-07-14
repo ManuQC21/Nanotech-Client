@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ConfigApi {
 
-    public static final String baseUrlE = "https://nanotech-service-production.up.railway.app";
+    public static final String baseUrlE = "https://nanotech-qc.up.railway.app";
 
     private static Retrofit retrofit;
     private static String token = "";

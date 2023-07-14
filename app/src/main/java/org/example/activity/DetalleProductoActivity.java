@@ -36,7 +36,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class DetalleProductoActivity extends AppCompatActivity {
 
-    private ImageView imgProductoDetalle;
+    private ImageView imgProductoDetalle,tvIconoMedida;
     private Button btnAgregarCarrito, btnComprar;
     private TextView tvNameProductoDetalle, tvMedidaProductoDetalle, tvStockProductoDetalle, tvPrecioProductoDetalle, tvDescripcionProductoDetalle;
     final Gson g = new GsonBuilder()
@@ -65,6 +65,7 @@ public class DetalleProductoActivity extends AppCompatActivity {
         this.btnComprar = findViewById(R.id.btnComprar);
         this.tvNameProductoDetalle = findViewById(R.id.tvNameProductoDetalle);
         this.tvMedidaProductoDetalle = findViewById(R.id.tvMedidaProductoDetalle);
+        this.tvIconoMedida = findViewById(R.id.tvIconoMedida);
         this.tvStockProductoDetalle = findViewById(R.id.tvStockProductoDetalle);
         this.tvPrecioProductoDetalle = findViewById(R.id.tvPrecioProductoDetalle);
         this.tvDescripcionProductoDetalle = findViewById(R.id.tvDescripcionProductoDetalle);
@@ -112,6 +113,11 @@ public class DetalleProductoActivity extends AppCompatActivity {
 
         this.btnAgregarCarrito.setOnClickListener(v -> agregarAlCarrito());
 
+        if (producto.getMedida().equals("Unidades")) {
+            tvIconoMedida.setImageResource(R.drawable.ic_unit);
+        } else if (producto.getMedida().equals("Cajas")) {
+            tvIconoMedida.setImageResource(R.drawable.ic_box);
+        }
         this.btnComprar.setOnClickListener(v -> {
             int stock = producto.getStock();
             if (stock >= 1) {

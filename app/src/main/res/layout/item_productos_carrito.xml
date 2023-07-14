@@ -36,6 +36,13 @@
                     android:src="@drawable/proyec" />
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/btnEliminarPCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginStart="350dp"
+                android:src="@drawable/ic_borrar" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,14 +66,6 @@
                         android:textColor="#000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
-
-                    <ImageView
-                        android:id="@+id/btnEliminarPCarrito"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_borrar" />
                 </RelativeLayout>
 
                 <RelativeLayout
